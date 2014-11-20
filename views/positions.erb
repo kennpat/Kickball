@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<head><title>Players by Position</title></head>
+
+<body>	
+	<h1>Players by Position</h1>
+
+<ul>
+		<h3><%= @potision %></h3>
+	<ul>
+		<% @position.each do |player| %>
+			<li><%= player %>: <%= team %></li>
+		<% end %>
+
+
+</ul>
+
+
+
+</body>
+
+
+
