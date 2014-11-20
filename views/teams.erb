@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+		<%= @team_name %>
+	</title>
+</head>
+
+
+<body>
+	<h1>LACKP</h1>
+	<h2>League of Cool Kickball Professionals</h2>
+
+	<h3><%= @team_name %></h3>
+	<ul>
+		<% @team_roster.each do |position, player| %>
+			<li><%= position %>: <%= player %></li>
+		<% end %>
+
+	</ul>
+
+</body>
+
+<footer>
+	<a href = '/'><h4>Back</h4></a>
+
+</html>
