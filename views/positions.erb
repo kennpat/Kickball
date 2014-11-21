@@ -5,16 +5,17 @@
 	<h1>Players by Position</h1>
 
 <ul>
-		<h3><%= @potision %></h3>
+		<h3>Position: <%= @link %></h3>
 	<ul>
-		<% @position.each do |player| %>
-			<li><%= player %>: <%= team %></li>
+		<% @teams.each do |team, position| %>
+			<% if position.values_at(@link) != nil %>
+				<li><%= position[@link]%> plays for <%= team %></li>
+			<% end %>
 		<% end %>
-
 
 </ul>
 
-
+<a href = '/'><h4>Back</h4></a>
 
 </body>
 

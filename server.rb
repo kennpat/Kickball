@@ -1,6 +1,6 @@
-#Patrick Kennedy & Nick Clucas
-#Kickball Challenge
-#11/18/14
+# Patrick Kennedy
+# Kickball Challenge
+# 11/18/14 (updated 11/20/14)
 
 require "sinatra"
 require "json"
@@ -20,13 +20,15 @@ teams.keys.each do |team|
 	team_name_hash[team] = team.downcase.split(' ').join('_')
 end
 
-get '/' do 
+# setting the default page
+get '/' do
 	@teams = team_name_hash
 	@positions = position_arr
-	binding.pry
+	# binding.pry
 	erb :index
 end
 
+# using the splat
 get '/teams/*' do |link|
 	team_name_hash.values
 	@team_name = teams.keys[team_name_hash.values.index(link)]
@@ -34,15 +36,12 @@ get '/teams/*' do |link|
 	erb :teams
 end
 
-get '/positions/*' do |link|
-	position_arr
-	@postion = ''		
-	@player = ''
+# futzing around with params
+get '/positions/:link' do
+	@teams = teams
+	@link = params[:link]
+	# binding.pry
 	erb :positions
 end
 
-#binding.pry
-
-
-
-
+# binding.pry
